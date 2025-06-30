@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CRUD App</title>
+    <link rel="stylesheet" href="main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a2e0efb90e.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="app-header">
+        <h1>📝 Product Manager</h1>
+        <p>Create, Read, Update, Delete & Search</p>
+      </header>
+
+      <div class="alert hidden" id="alert-msg">
+        <i class="fas fa-exclamation-triangle"></i>
+        Please fill in the Title, Price, and Category fields.
+      </div>
+      <section class="product-form">
+        <input type="text" id="title" placeholder="Product Title" />
+        <div class="price-group">
+          <input
+            type="number"
+            id="price"
+            placeholder="Price"
+            oninput="getTotal()"
+          />
+          <input
+            type="number"
+            id="taxs"
+            placeholder="Taxes"
+            oninput="getTotal()"
+          />
+          <input
+            type="number"
+            id="discount"
+            placeholder="Discount"
+            oninput="getTotal()"
+          />
+          <input type="text" id="total" value="Total: " readonly />
+        </div>
+        <input type="number" id="count" placeholder="Count (optional)" />
+        <input type="text" id="category" placeholder="Category" />
+        <button id="create">
+          <i class="fas fa-plus-circle"></i> Create Product
+        </button>
+      </section>
+
+      <div id="delall" class="delete-all"></div>
+
+      <section class="search-section">
+        <input
+          type="text"
+          id="search"
+          placeholder="Search by title or category..."
+        />
+        <button id="clear-search">Clear</button>
+        <div class="export-wrapper"></div>
+      </section>
+
+      <div class="export-buttons">
+        <button id="exportPDF">
+          <i class="fas fa-file-pdf"></i> Download as PDF file
+        </button>
+        <button id="exportExcel">
+          <i class="fas fa-file-excel"></i> Download as Excel file
+        </button>
+        <label class="upload-excel-btn">
+          <input type="file" id="importExcel" accept=".xlsx, .xls" hidden />
+          <i class="fas fa-upload"></i> Import from Excel
+        </label>
+      </div>
+
+      <section class="product-list">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Taxes</th>
+              <th>Discount</th>
+              <th>Total</th>
+              <th>Count</th>
+              <th>Category</th>
+              <th>Update</th>
+              <th>Delete</th>
+              <th>Delete All</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div id="pagination"></div>
+      </section>
+    </div>
+
+    <div id="duplicate-modal" class="modal hidden">
+      <div class="modal-content">
+        <p id="modal-message"></p>
+        <div class="modal-actions">
+          <button id="confirm-add">yes, increase count</button>
+          <button id="cancel-add">no, cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
