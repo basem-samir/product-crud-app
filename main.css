@@ -1,0 +1,378 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.app-header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+}
+.app-header p {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+}
+
+.alert {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+.hidden {
+  display: none !important;
+}
+
+.product-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.product-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+.product-form input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.price-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+#total {
+  background-color: #d0f0c0;
+  color: #145a32;
+  font-weight: bold;
+  border: 1px solid #a5d6a7;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+button#create {
+  background-color: #3498db;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+button#create:hover {
+  background-color: #2980b9;
+}
+
+#delall {
+  background-color: #e74c3c;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 20px 0;
+  text-align: center;
+  display: none;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s;
+}
+#delall:hover {
+  background-color: #c0392b;
+}
+
+.product-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.product-list th,
+.product-list td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+.product-list th {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  font-weight: 600;
+}
+.product-list tr:hover {
+  background-color: #f9f9f9;
+}
+
+.product-list span {
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: 0.3s;
+  user-select: none;
+}
+span.update {
+  background-color: #27ae60;
+}
+span.update:hover {
+  background-color: #1e8449;
+}
+span.delete {
+  background-color: #e67e22;
+}
+span.delete:hover {
+  background-color: #ca6f1e;
+}
+span.delall {
+  background-color: #e74c3c;
+}
+span.delall:hover {
+  background-color: #c0392b;
+}
+
+.search-section {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+#search {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+#clear-search {
+  padding: 8px 14px;
+  background-color: #95a5a6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#clear-search:hover {
+  background-color: #7f8c8d;
+}
+
+#pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+#pagination button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 600;
+}
+#pagination button:hover {
+  background-color: #2980b9;
+}
+#pagination button.active {
+  background-color: #1e74b1;
+  cursor: default;
+}
+
+.export-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: flex-start;
+}
+.export-buttons button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s;
+}
+#exportPDF {
+  background-color: #e74c3c;
+}
+#exportPDF:hover {
+  background-color: #c0392b;
+}
+#exportExcel {
+  background-color: #27ae60;
+}
+#exportExcel:hover {
+  background-color: #1e8449;
+}
+
+.upload-excel-btn {
+  background-color: #8e44ad;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
+}
+.upload-excel-btn:hover {
+  background-color: #732d91;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal.hidden {
+  display: none !important;
+}
+.modal-content {
+  background-color: white;
+  padding: 25px 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.modal-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+#confirm-add {
+  background-color: #27ae60;
+  color: white;
+}
+#confirm-add:hover {
+  background-color: #1e8449;
+}
+#cancel-add {
+  background-color: #e74c3c;
+  color: white;
+}
+#cancel-add:hover {
+  background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+  .price-group {
+    grid-template-columns: 1fr;
+  }
+  .search-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #clear-search {
+    width: 100%;
+  }
+  .product-form {
+    padding: 15px;
+  }
+  .product-form input,
+  button#create {
+    font-size: 0.9rem;
+  }
+  .product-list table,
+  .product-list th,
+  .product-list td {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+  .product-list table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  #pagination button {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+  #delall {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+  .app-header p {
+    font-size: 0.9rem;
+  }
+  .modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+  .modal-actions {
+    flex-direction: column;
+  }
+  .modal-actions button {
+    width: 100%;
+  }
+}
